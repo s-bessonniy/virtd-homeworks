@@ -35,6 +35,18 @@ Hey, Netology
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_13_14_40.png)
 
+Скачиваем nginx 1.21.1
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_13_54_11.png)
+
+Собираю образ и отправляю в репозиторий
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_14_31_27.png)
+
+Ссылка на репу:
+
+[](https://hub.docker.com/repository/docker/insommnia/nginx-custom-image/general)
+
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
 - имя контейнера "ФИО-custom-nginx-t2"
