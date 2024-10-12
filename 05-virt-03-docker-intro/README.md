@@ -97,6 +97,8 @@ COPY ./index.html /usr/share/nginx/html/index.html
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_15_28_06.png)
 
+Проблема в том, что мы изменили порт, который слушает nginx, а сопоставление портов запущенного контейнера и хоста оставили преджними.
+
 ## Задача 4
 
 
@@ -106,6 +108,9 @@ COPY ./index.html /usr/share/nginx/html/index.html
 - Добавьте ещё один файл в текущий каталог ```$(pwd)``` на хостовой машине.
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
+## Ответ на Задание 4
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_15_43_27.png)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
@@ -158,6 +163,44 @@ services:
 7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
+
+## Ответ на Задание 5
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_15_56_05.png)
+
+По умолчанию, Compose запускает файл с названием compose.yaml или compose.yml. Compose также поддерживает docker-compose.yaml и docker-compose.yml для обеспечения обратной совместимости с более ранними версиями. Если в рабочем каталоге оба файла, Compose запустит compose.yaml.
+
+Отредактировал файл compose.yaml
+
+```
+version: "3"
+
+include:
+  - docker-compose.yaml
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    network_mode: host
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_16_00_16.png)
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_16_11_44.png)
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_16_40_38.png)
+
+Удаление compose.yaml
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_16_45_24.png)
+
+После удаления манифеста мы получили предупреждение: сервисы, запущенные через docker compose, отличаются от тех, что находятся в текущем манифесте. Нам предлагают или исправить проблему с файлом или удалить лишние контейнеры, которые отсутствуют в текущем манифесте.
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_16_47_26.png)
 
 ---
 
