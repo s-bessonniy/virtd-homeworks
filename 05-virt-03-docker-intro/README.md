@@ -45,7 +45,7 @@ Hey, Netology
 
 Ссылка на репу:
 
-[](https://hub.docker.com/repository/docker/insommnia/nginx-custom-image/general)
+[repo](https://hub.docker.com/repository/docker/insommnia/nginx-custom-image/general)
 
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
