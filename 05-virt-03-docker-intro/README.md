@@ -1,5 +1,5 @@
 
-# Домашнее задание к занятию 4 «Оркестрация группой Docker контейнеров на примере Docker Compose»
+# Домашнее задание к занятию 4 «Оркестрация группой Docker контейнеров на примере Docker Compose» - Сергей Яремко.
 
 ### Инструкция к выполению
 
@@ -28,6 +28,12 @@ Hey, Netology
 ```
 - Соберите и отправьте созданный образ в свой dockerhub-репозитории c tag 1.0.0 (ТОЛЬКО ЕСЛИ ЕСТЬ ДОСТУП). 
 - Предоставьте ответ в виде ссылки на https://hub.docker.com/<username_repo>/custom-nginx/general .
+
+## Ответ на Задание 1
+
+Установленные docker и docker compose
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_13_14_40.png)
 
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
