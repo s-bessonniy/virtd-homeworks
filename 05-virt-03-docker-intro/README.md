@@ -31,7 +31,7 @@ Hey, Netology
 
 ## Ответ на Задание 1
 
-Установленные docker и docker compose
+Установленные docker и docker compose:
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_13_14_40.png)
 
@@ -39,9 +39,16 @@ Hey, Netology
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_13_54_11.png)
 
-Собираю образ и отправляю в репозиторий
+Собираю образ и отправляю в репозиторий:
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_14_31_27.png)
+
+Dockerfile:
+
+```
+FROM nginx:1.21.1
+COPY ./index.html /usr/share/nginx/html/index.html
+```
 
 Ссылка на репу:
 
@@ -58,6 +65,9 @@ Hey, Netology
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+## Ответ на Задание 2
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-03-docker-intro/screenshots/VirtualBox_Ubuntu-50Gb_12_10_2024_14_47_01.png)
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
