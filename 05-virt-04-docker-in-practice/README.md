@@ -109,7 +109,7 @@ docker build -t python -f Dockerfile.python .
 
 ## Ответ на Задание 3
 
-Ссыль на [compose.yaml]()
+Ссыль на [compose.yaml](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/compose.yaml)
 
 и его содержимое
 
@@ -162,6 +162,35 @@ services:
 ```
 docker compose up -d
 ```
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_12_35_27.png)
+
+Результат вызова команды```curl -L http://127.0.0.1:8090```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_12_35_44.png)
+
+Результат вывода команд:
+
+```
+docker exec -it 53cff1a98e07 mysql -uapp -pQwErTy1234
+```
+
+```
+show databases;
+```
+
+```
+use virtd
+```
+
+```
+show tables;
+```
+
+```
+SELECT * from requests LIMIT 10;
+```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_16_03_15.png)
 
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
