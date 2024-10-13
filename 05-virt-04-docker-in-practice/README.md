@@ -200,6 +200,16 @@ SELECT * from requests LIMIT 10;
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. В качестве ответа повторите  sql-запрос и приложите скриншот с данного сервера, bash-скрипт и ссылку на fork-репозиторий.
 
+## Ответ на Задание 4
+
+Скрины:
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_17_48_54.png)
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_17_51_28.png)
+
+Ссыль на [script.sh](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/script.sh)
+
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
 2. Протестируйте ручной запуск
@@ -209,6 +219,24 @@ SELECT * from requests LIMIT 10;
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
+## Ответ на Задание 6
+
+```
+docker pull hashicorp/terraform:latest
+```
+
+```
+docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive hashicorp/terraform
+```
+
+```
+docker image  save -o  /tmp/image.tar.gz hashicorp/terraform
+```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_18_00_39.png)
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_18_09_20.png)
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
