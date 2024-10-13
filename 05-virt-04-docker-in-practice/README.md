@@ -54,6 +54,10 @@ docker-compose version
 ---
 ### ВНИМАНИЕ!
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
+
+## Ответ на Задание 1
+
+[Ссыль на fork репы](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/README.md)
 ---
 
 ## Задача 2 (*)
