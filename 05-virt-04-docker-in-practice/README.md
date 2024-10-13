@@ -65,14 +65,6 @@ docker-compose version
 
 Содержимое файла [Dockerfile.python](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/Dockerfile.python)
 
-Сборка докер контейнера:
-
-```
-ocker build -t python -f Dockerfile.python .
-```
-
-![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_11_49_24.png)
-
 ```
 FROM python:3.9-slim
 WORKDIR /app
@@ -81,6 +73,14 @@ RUN pip install -r ./tmp/requirements.txt
 COPY . .
 CMD ["python", "main.py"]
 ```
+
+Сборка докер контейнера:
+
+```
+docker build -t python -f Dockerfile.python .
+```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_11_49_24.png)
 
 ---
 
@@ -106,6 +106,62 @@ CMD ["python", "main.py"]
 5. Подключитесь к БД mysql с помощью команды ```docker exec -ti <имя_контейнера> mysql -uroot -p<пароль root-пользователя>```(обратите внимание что между ключем -u и логином root нет пробела. это важно!!! тоже самое с паролем) . Введите последовательно команды (не забываем в конце символ ; ): ```show databases; use <имя вашей базы данных(по-умолчанию example)>; show tables; SELECT * from requests LIMIT 10;```.
 
 6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
+
+## Ответ на Задание 3
+
+Ссыль на [compose.yaml]()
+
+и его содержимое
+
+```
+version: '3'
+include:
+  - proxy.yaml
+
+volumes:
+  db_mysql:
+
+services:
+
+  db:
+    image: mysql:8
+    restart: on-failure
+    env_file:
+      - .env
+    volumes:
+      - /var/lib/docker/volumes/db_mysql/_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      backend:
+        ipv4_address: 172.20.0.10
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  web:
+    build:
+          dockerfile: Dockerfile.python
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=db
+      - DB_USER=${MYSQL_USER}
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5
+```
+
+```
+docker compose up -d
+```
 
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
