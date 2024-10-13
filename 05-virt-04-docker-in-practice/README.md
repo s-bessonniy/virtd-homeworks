@@ -242,6 +242,10 @@ docker image  save -o  /tmp/image.tar.gz hashicorp/terraform
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий .
 
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_18_19_05.png)
+
+``
+
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
 Предоставьте скриншоты  действий .
