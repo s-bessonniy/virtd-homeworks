@@ -63,6 +63,25 @@ docker-compose version
 
 ![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/2024-10-13_112122_github.com.png)
 
+Содержимое файла [Dockerfile.python](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/Dockerfile.python)
+
+Сборка докер контейнера:
+
+```
+ocker build -t python -f Dockerfile.python .
+```
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/VirtualBox_Ubuntu-50Gb_13_10_2024_11_49_24.png)
+
+```
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt ./tmp/
+RUN pip install -r ./tmp/requirements.txt
+COPY . .
+CMD ["python", "main.py"]
+```
+
 ---
 
 ## Задача 2 (*)
