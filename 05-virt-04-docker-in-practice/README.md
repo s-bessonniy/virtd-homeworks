@@ -58,6 +58,11 @@ docker-compose version
 ## Ответ на Задание 1
 
 [Ссыль на fork репы](https://github.com/s-bessonniy/shvirtd-example-python/blob/main/README.md)
+
+И скрин:
+
+![](https://github.com/s-bessonniy/virtd-homeworks/blob/shvirtd-1/05-virt-04-docker-in-practice/screenshots/2024-10-13_112122_github.com.png)
+
 ---
 
 ## Задача 2 (*)
